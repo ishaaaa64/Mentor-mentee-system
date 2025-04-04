@@ -134,12 +134,20 @@ const Sidebar = () => {
             Performance
           </StyledLink>
         </SidebarNavItem> */}
-                    
+{/*                     
             <SidebarNavItem>
           <SidebarIcon isOpen={isOpen}>
             <BsChatDots />
           </SidebarIcon>
           <StyledLink to="/student/MessagingPage" isOpen={isOpen}>
+          Messaging
+          </StyledLink>
+        </SidebarNavItem> */}
+        <SidebarNavItem>
+          <SidebarIcon isOpen={isOpen}>
+            <BsChatDots />
+          </SidebarIcon>
+          <StyledLink to="/chat-dashboard" isOpen={isOpen}>
           Messaging
           </StyledLink>
         </SidebarNavItem>

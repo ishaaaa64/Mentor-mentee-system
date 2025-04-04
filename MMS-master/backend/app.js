@@ -2,9 +2,9 @@ import express from "express";
 import { config } from "dotenv";
 import cors from "cors";
 import { dbConnection } from "./database/dbConnection.js";
-//import AdminSignInRouter from "./router/adminSignInRouter.js";
-import messagingRoutes from "./routes/messagingRoutes.js";
-import requestRoutes from "./routes/requestRoutes.js"; // ✅ Added for handling requests
+// import AdminSignInRouter from "./router/adminSignInRouter.js";
+// import messagingRoutes from "./routes/messagingRoutes.js";
+// import requestRoutes from "./routes/requestRoutes.js"; // ✅ Added for handling requests
 import studentRouter from "./router/studentRouter.js";
 import teacherRouter from "./router/teacherRouter.js";
 import assignmentRouter from "./router/assignmentRouter.js";
@@ -48,12 +48,12 @@ app.use("/api/v1/exam", examRouter);
 app.use("/api/v1/attendance", attendanceRouter);
 app.use("/api/v1/users", usersRouter);
 app.use("/api/v1/register", adminRegisterRouter);
-app.use("/api/v1/messages", messagingRoutes);
-app.use("/api/v1/requests", requestRoutes);
+// app.use("/api/v1/messages", messagingRoutes);
+// app.use("/api/v1/requests", requestRoutes);
 app.use("/api/v1/send-email", sendEmailRoutes); // ✅ Added send-email route
 //app.use("/api/v1/uploadcsv", uploadRoutes);
 
-//app.use("/api/v1/admin", AdminSignInRouter);
+// app.use("/api/v1/admin", AdminSignInRouter);
 
 // Global Error Handler
 app.use((err, req, res, next) => {

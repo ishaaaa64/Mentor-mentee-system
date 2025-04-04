@@ -61,7 +61,8 @@ import TPerformance from "./pages/Teams/TPerformance";
 import TeamLeaderLogin from "./components/TeamLeaderLogin.jsx";
 import JoinTeam from "./pages/Students/JoinTeam.jsx";
 import contexts from "./components/ContextApi.jsx";
-import ChatComponent from './ChatComponent'; // Correctly imported ChatComponent
+// import ChatComponent from './ChatComponent'; // Existing chat component
+import chatDashboard from './chatDashboard.jsx'; // ✅ New import for chat dashboard
 
 const App = () => {
   const [teachers, setTeachers] = useState([]);
@@ -86,11 +87,12 @@ const App = () => {
           <Route exact path="/teacher/dashboard" element={<TeacherDashboard />} />
           <Route exact path="/student/dashboard" element={<StudentDashboard />} />
           <Route exact path="/student/Sidebar" element={<Sidebar />} />
-          
-          {/* Chat Route */}
-          <Route path="/chat" element={<ChatComponent />} /> {/* Add this line for the chat feature */}
 
-          {/* Continue with other routes */}
+          {/* Chat Routes */}
+          {/* <Route path="/chat" element={<ChatComponent />} /> */}
+          <Route path="/chat-dashboard" element={<chatDashboard />} /> {/* ✅ New chat dashboard route */}
+
+          {/* Admin routes */}
           <Route exact path="/admin/classes" element={<Classes />} />
           <Route exact path="/admin/exams" element={<Exam />} />
           <Route exact path="/admin/attendance" element={<Attendance />} />
@@ -102,15 +104,43 @@ const App = () => {
           <Route exact path="/admin/communication" element={<Announcement />} />
           <Route exact path="/admin/events" element={<EventCalender />} />
           <Route exact path="/admin/settings" element={<SettingsProfile />} />
-          
-          {/* More routes */}
+
+          {/* Student routes */}
           <Route path="/student/settings" element={<StudentProfile />} />
           <Route path="/student/MessagingPage" element={<MessagingPage />} />
           <Route path="/student/send-request" element={<SendRequest />} />
+          <Route path="/student/assignments" element={<StudentAssignments />} />
+          <Route path="/student/exams" element={<ExamSection />} />
+          <Route path="/student/performance" element={<PerformanceSection />} />
+          <Route path="/student/attendance" element={<AttendanceSection />} />
+          <Route path="/student/library" element={<LibrarySection />} />
+          <Route path="/student/events" element={<CheckEventSection />} />
+          <Route path="/student/announcement" element={<AnnouncementSection />} />
+          <Route path="/student/join-team" element={<JoinTeam />} />
 
-          {/* Teacher Profile System */}
+          {/* Teacher routes */}
+          <Route path="/teacher/messaging" element={<TeacherMessagingPage />} />
+          <Route path="/teacher/requests" element={<Request />} />
           <Route exact path="/teacher-profile" element={<TeacherProfile teachers={teachers} setTeachers={setTeachers} />} />
           <Route exact path="/teacher-details" element={<TeacherDetails teachers={teachers} setTeachers={setTeachers} />} />
+          <Route path="/teacher/classes" element={<ClassSection />} />
+          <Route path="/teacher/students" element={<StudentSection />} />
+          <Route path="/teacher/teachers" element={<TeacherSection />} />
+          <Route path="/teacher/performance" element={<CheckPerformanceSection />} />
+          <Route path="/teacher/events" element={<EventSection />} />
+          <Route path="/teacher/profile" element={<TeacherProfileSection />} />
+          <Route path="/teacher/announcement" element={<CheckAnnouncementSection />} />
+          <Route path="/teacher/assignments" element={<AssignmentSection />} />
+          <Route path="/teacher/attendance" element={<CheckAttendanceSection />} />
+          <Route path="/teacher/exams" element={<CheckExamSection />} />
+
+          {/* Team routes */}
+          <Route path="/team/register" element={<TeamRegister />} />
+          <Route path="/team/dashboard" element={<TeamDashboard />} />
+          <Route path="/team/details" element={<TeamDetails />} />
+          <Route path="/team/performance" element={<TPerformance />} />
+          <Route path="/team/join" element={<JoinTeamPage />} />
+          <Route path="/team-leader-login" element={<TeamLeaderLogin />} />
         </Routes>
       </Router>
     </contexts.Provider>
